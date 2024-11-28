@@ -2,6 +2,11 @@ import './App.css';
 import { useState, useEffect } from "react";
 import axios from "axios";
 import DataShow from './components/DataShow';
+import { Routes, Route } from "react-router-dom";
+import Home from "./components/Home";
+import About from "./components/About";
+import Detail from './components/Detail';
+import NavigationBar from "./components/NavigationBar";
 
 function App() {
 
@@ -56,7 +61,7 @@ function App() {
 
   return (
     <div >
-      {console.log(data)}
+      {/* {console.log(data)}
       <h2>Data from API</h2>
       <ul>
         {data.map((user) => (
@@ -64,7 +69,14 @@ function App() {
         ))}
       </ul>
       <button onClick={handleClickCreate}>CREATE</button>
-      <DataShow/>
+      <DataShow/> */}
+      <NavigationBar/>
+      <Routes>
+        <Route path="/" element={<DataShow/>}/>
+        <Route path="/about" element={<About/>}/>
+        <Route path="/detail/:id" element={<Detail/>}/>
+      </Routes>
+
     </div>
   );
 }
